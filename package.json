@@ -1,0 +1,21 @@
+{
+  "name": "dsh-plugin-release",
+  "version": "0.1.0",
+  "description": "Portable package contract, release checklist, and installation hygiene skills for DeepSeek Harness plugins.",
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "npm", "release", "packaging", "supply-chain"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/LeslieWylie/dsh-plugin-release.git" },
+  "bugs": { "url": "https://github.com/LeslieWylie/dsh-plugin-release/issues" },
+  "homepage": "https://github.com/LeslieWylie/dsh-plugin-release",
+  "publishConfig": { "access": "public" },
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": { ".": { "types": "./lib/index.d.ts", "default": "./lib/index.js" }, "./package.json": "./package.json" },
+  "files": ["lib", "skills", "docs", "cordis.patch.yml", "README.md", "README.zh.md", "LICENSE"],
+  "engines": { "node": ">=22.19.0" },
+  "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit", "test": "node --test --import tsx test/*.test.ts", "prepublishOnly": "npm run build" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/cordis": "^4.0.1", "@deepseek-ai/dsh-skill": "^0.1.0-rc.6", "@deepseek-ai/dsh-tools": "^0.1.0-rc.6" },
+  "devDependencies": { "@deepseek-ai/cordis": "^4.0.1", "@deepseek-ai/dsh-skill": "0.1.0-rc.6", "@deepseek-ai/dsh-tools": "0.1.0-rc.6", "@types/node": "^22.20.0", "tsx": "^4.22.4", "typescript": "^6.0.3" }
+}
